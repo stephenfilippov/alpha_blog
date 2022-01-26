@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
+
+    before_action :set_article, only: [:show, :edit, :update, :destroy] # runs set_article before it runs any methods that use it 
+
+
     def show 
-        @article = Article.find(params[:id])
     end
 
     def index 
@@ -11,14 +14,41 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
 
-    def create 
-        @article = Article.new(params.require(:article).permit(:title, :description))
-        if @article.save
+    def edit 
+    end
 
+    def create 
+        @article = Article.new(article_params) # within () is known as white listing and setting the parameters
+        if @article.save
+            flash[:notice] = "Article was created successfully"
             redirect_to @article # the same as writing article_path(@article) = /articles/7
         else
             render "new" #displays the form again
         end
+    end
+
+    def update 
+        if @article.update(article_params)
+            flash[:notice] = "Article was updated successfully"
+            redirect_to @article
+        else 
+            render "edit"
+        end
+    end
+
+    def destroy
+        @article.destroy
+        redirect_to articles_path
+    end
+
+    private # allows use only within the controller and not outside the application
+
+    def set_article
+        @article = Article.find(params[:id])
+    end
+
+    def article_params
+        params.require(:article).permit(:title, :description)
     end
 
 end

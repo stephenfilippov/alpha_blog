@@ -10,6 +10,9 @@
   </head>
 
   <body>
+  <% flash.each do |name, msg| %> <!-- inserts the flash into the page where it runs  -->
+    <%= msg %>
+  <% end %>
     <%= yield %>
   </body>
 </html>
