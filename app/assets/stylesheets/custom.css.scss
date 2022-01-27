@@ -1,0 +1,102 @@
+@import 'bootstrap/dist/css/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+:root {
+    --main-color: rgb(255, 38, 110);
+    --secondary-color: rgb(65, 65, 65);
+    --third-color: rgb(255, 255, 255);
+  }
+
+html,
+body {
+  height: 100%;
+  background: #dbdbdb;
+}
+
+.navbar {
+    background: var(--third-color) !important;
+    padding: 20px 15px;
+}
+
+#logo {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: bold !important;
+    font-size: 30px;
+    color: var(--main-color) !important;
+}
+
+nav a {
+    color: var(--secondary-color) !important;
+}
+
+nav .dropdown-menu a {
+    color: black !important;
+}
+
+form button {
+    border: 1px solid var(--main-color) !important;;
+    color: var(--main-color) !important;
+}
+
+form button:hover {
+    background: var(--main-color) !important;
+    color: var(--third-color)!important;
+}
+
+.jumbotron {
+    background-image: asset-url('jumbo3.jpeg');
+    background-repeat: no-repeat, repeat;
+    background-color: #cccccc;
+    background-size: cover;
+    text-align: center;
+    background-position: center center;
+    height: 100vh;
+    margin: 0px;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-blend-mode:darken;
+    position: relative;
+}
+
+.jumbotron a {
+    border: 1px solid var(--third-color);
+    background: none;
+}
+
+.jumbotron a:hover {
+    border: 1px solid var(--third-color);
+    background: var(--third-color);
+    color:var(--main-color);
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticy-footer {
+    flex-shrink: none;
+}
+
+#sticky-footer {
+    background: var(--third-color);
+}
+
+#sticky-footer small {
+    color: var(--secondary-color)
+}
+
+#sticky-footer .link{
+    color: var(--main-color)
+}
+
+.push {
+    margin-top: 20px;
+}
+
+
+
+
+

@@ -43,11 +43,11 @@ class ArticlesController < ApplicationController
 
     private # allows use only within the controller and not outside the application
 
-    def set_article
+    def set_article # created method so we dont repeat ourselves DRY
         @article = Article.find(params[:id])
     end
 
-    def article_params
+    def article_params # created method so we dont repeat ourselves DRY
         params.require(:article).permit(:title, :description)
     end
 

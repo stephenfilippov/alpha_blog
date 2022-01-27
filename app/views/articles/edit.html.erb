@@ -1,28 +1,8 @@
-<h1>Edit article</h1>
+<div class="push">
+    <div class="container">
+    
+    <h1>Edit article</h1>
+    <%= render 'form' %>
 
-<% if @article.errors.any? %> <!-- runs true if there are any errors  -->
-    <h2>The following errors prevented the article from being saved</h2>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %> <!-- loops through the errors and prints them -->
-            <li><%= msg %></li>
-        <%end%>
-    </ul>
-<% end %>
-
-<%= form_with(model: @article, local: true )do |form| %>
-    <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-    </p>
-
-    <p>
-      <%= form.label :description %><br>
-      <%= form.text_field :description %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
-
-<p><%= link_to 'Cancel and return to articles', articles_path%></p>
+    </div>
+</div>
