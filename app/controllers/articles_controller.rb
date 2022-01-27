@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(article_params) # within () is known as white listing and setting the parameters
+        @article.user = User.first
         if @article.save
             flash[:notice] = "Article was created successfully"
             redirect_to @article # the same as writing article_path(@article) = /articles/7
