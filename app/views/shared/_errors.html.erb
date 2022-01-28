@@ -1,9 +1,9 @@
 
-<% if @article.errors.any? %> <!-- runs true if there are any errors  -->
+<% if obj.errors.any? %> <!-- runs true if there are any errors  -->
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <h2>The following errors prevented the article from being saved</h2>
+  <h2>The following errors prevented the <%= obj.class.name.downcase %> from being saved</h2> <!-- runs true if there are any errors  -->
     <ul>
-      <% @article.errors.full_messages.each do |msg| %> <!-- loops through the errors and prints them -->
+      <% obj.errors.full_messages.each do |msg| %> <!-- loops through the errors and prints them -->
         <li><%= msg %></li>
       <%end%>
     </ul>

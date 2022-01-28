@@ -7,6 +7,15 @@
     --third-color: rgb(255, 255, 255);
   }
 
+
+
+  .align-vertical {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+    //   align-items: center !important;
+  }
+
 html,
 body {
   height: 100%;
@@ -63,7 +72,8 @@ form button:hover {
 
 .jumbotron a {
     border: 1px solid var(--third-color);
-    background: none;
+    background: rgba(0, 0, 0, 0.24);
+    font-size: 30px;
 }
 
 .jumbotron a:hover {

@@ -1,5 +1,5 @@
 
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @article %> <!-- passes @article into obj that then is used in _errors.html -->
 
 <%= form_with(model: @article, class: "shadow px-4 pb-1 pt-3 bg-light rounded", local: true ) do |form| %>
   <div class="form-group row">
