@@ -3,8 +3,11 @@
     <div class="row justify-content-md-center">
         <div class="col-8 mt-4">
             <div class="card text-center mb-5 shadow bg-white rounded">
-                <div class="card-header">
-                By <%= @article.user.username if @article.user%>
+                <div class="card-header block">
+                    By <%= @article.user.username if @article.user%>
+                    <div class="py-2">
+                        <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="card-text text-left" > <%= simple_format(@article.description) %> </div>
@@ -19,7 +22,7 @@
     </div>
 </div>
 
-<div class="container text-center">
-    <%= link_to '[ Back', articles_path%> | <%= link_to 'Edit', edit_article_path(@article)%> | <%= link_to 'Delete ]', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}%>
+<div class="text-center">
+    <%= link_to '[ Back ]', articles_path%> 
 </div>
 
