@@ -14,12 +14,19 @@
     <label>Password</label><br>
     <%= form.password_field :password, class: 'form-control', placeholder: "Choose a password" %>
   </div>
-  <div class="form-group row">
+  <div class="form-group row justify-content-between">
     <%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class: "btn btn-outline-dark btn-lg") %>
+    <% if logged_in?%>
+      <%= link_to "Delete profile?", user_path(current_user), class: "btn btn-outline-danger btn-lg",method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
   </div>
 <% end %>
 
 <div class="container text-center my-5">
-  <%= link_to '[ Cancel and return to articles listing ]', articles_path %>
+  <% if logged_in? %>
+    <%= link_to '[ Return to profile ]', user_path(@user) %>
+  <% else %>
+    <%= link_to '[ Back ]', root_path %>
+  <% end %>
 </div>
 

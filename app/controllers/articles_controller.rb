@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
     before_action :set_article, only: [:show, :edit, :update, :destroy] # runs set_article before it runs any methods that use it 
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
     def show 
@@ -19,7 +21,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(article_params) # within () is known as white listing and setting the parameters
-        @article.user = User.first
+        @article.user = current_user
         if @article.save
             flash[:notice] = "Article was created successfully"
             redirect_to @article # the same as writing article_path(@article) = /articles/7
@@ -50,6 +52,13 @@ class ArticlesController < ApplicationController
 
     def article_params # created method so we dont repeat ourselves DRY
         params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+        if current_user != @article.user
+            flash[:alert] = "You can ony edit or delete your own article!"
+            redirect_to @article 
+        end
     end
 
 end
