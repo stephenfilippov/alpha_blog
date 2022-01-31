@@ -1,10 +1,10 @@
 <div class="container">
 <% flash.each do |name, msg| %> <!-- inserts the flash into the page where it runs  -->
-<div class="alert alert-success alert-dismissible fade show mt-3" role="alert" >
-   <%= msg %>
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+  <div class="alert alert-<%= name == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show mt-3" role="alert" >
+    <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <% end %>
 </div>

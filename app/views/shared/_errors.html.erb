@@ -1,7 +1,7 @@
 
 <% if obj.errors.any? %> <!-- runs true if there are any errors  -->
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <h2>The following errors prevented the <%= obj.class.name.downcase %> from being saved</h2> <!-- runs true if there are any errors  -->
+  <h2 class="alert-heading" >The following errors prevented the <%= obj.class.name.downcase %> from being saved</h2> <!-- runs true if there are any errors  -->
     <ul>
       <% obj.errors.full_messages.each do |msg| %> <!-- loops through the errors and prints them -->
         <li><%= msg %></li>

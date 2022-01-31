@@ -1,0 +1,26 @@
+<div class="push">
+<div class="container">
+
+<h1 class="my-3" >Create a new category</h1>
+
+<%= render 'shared/errors' , obj: @category %> <!-- passes @user into obj that then is used in _errors.html -->
+
+<%= form_with(model: @category, class: "shadow px-4 pb-1 pt-3 bg-light rounded", local: true ) do |form| %>
+  <div class="form-group row">
+    <label>Category name</label>
+    <%= form.text_field :name, class: 'form-control', placeholder: "Enter a name"  %>
+  </div>
+  <div class="form-group row">
+    <%= form.submit class: "btn btn-outline-dark btn-lg" %>
+  </div>
+<% end %>
+
+<div class="container text-center my-5">
+  <% if logged_in? %>
+    <%= link_to '[ Return to profile ]', user_path(@user) %>
+  <% else %>
+    <%= link_to '[ Back ]', root_path %>
+  <% end %>
+</div>
+</div>
+</div>
